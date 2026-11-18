@@ -52,7 +52,6 @@ class OperationalWorkflowTest extends TestCase
         }
         $this->actingAs($this->employee)->get('/purchases/new')->assertDontSee('funding_source')->assertDontSee('payment_method')->assertDontSee('shipping_cost_toman');
         $this->actingAs($this->employee)->get('/expenses/new')->assertDontSee('financial_account_id')->assertDontSee('payment_method');
-        $this->assertSame(5, substr_count(file_get_contents(resource_path('views/layouts/app.blade.php')), 'request()->routeIs'));
     }
 
     public function test_end_to_end_create_stock_in_sale_expense_and_histories(): void

@@ -91,6 +91,10 @@ class SecurityAuthorizationTest extends TestCase
     {
         $employee = User::factory()->create(['role' => 'EMPLOYEE', 'active' => true]);
 
+        // Laravel intentionally bypasses CSRF verification while the application
+        // reports that it is running unit tests. Exercise the real web middleware.
+        $this->app->detectEnvironment(fn () => 'local');
+
         $this->withMiddleware()
             ->actingAs($employee)
             ->post('/sales', [
