@@ -96,4 +96,4 @@ The first public version is planned as `v0.1.0-alpha.1` and will be labeled **Ex
 
 ## License
 
-The original Paytakht Kala code and owner-created brand assets are proposed for release under the GNU General Public License v3.0 or later (`GPL-3.0-or-later`). Dependencies retain their respective licenses. See [LICENSE](LICENSE) and [LICENSE-REVIEW.md](LICENSE-REVIEW.md).
+The original Paytakht Kala code and owner-created brand assets are released under the GNU General Public License v3.0 or later (`GPL-3.0-or-later`). Dependencies retain their respective licenses. See [LICENSE](LICENSE) and [LICENSE-REVIEW.md](LICENSE-REVIEW.md).

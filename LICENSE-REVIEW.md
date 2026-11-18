@@ -4,7 +4,7 @@
 
 On 2026-11-18, the project owner confirmed that they developed and own the original Paytakht Kala application source code and proprietary brand assets and that no other person or company holds conflicting publication rights to those original materials.
 
-The owner has selected `GPL-3.0-or-later` as the proposed license, subject to final explicit approval before the first public push.
+The owner explicitly approved releasing Paytakht Kala under `GPL-3.0-or-later` on November 18, 2026. The original project code and owner-created brand assets are released under that license; third-party components retain their respective licenses.
 
 ## Third-party dependencies
 
