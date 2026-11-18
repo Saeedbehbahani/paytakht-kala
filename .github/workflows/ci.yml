@@ -37,6 +37,7 @@ jobs:
 
       - name: Bootstrap isolated test environment
         run: |
+          mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache
           cp .env.example .env
           touch database/database.sqlite
           php artisan key:generate
