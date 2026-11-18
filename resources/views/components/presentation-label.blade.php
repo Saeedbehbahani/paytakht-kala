@@ -1,0 +1,62 @@
+@props(['type', 'value'])
+@php
+    $labels = [
+        'audit-action' => [
+            'sale' => 'ثبت فروش', 'purchase' => 'ثبت ورود کالا', 'expense' => 'ثبت هزینه',
+            'installment_payment' => 'ثبت دریافت قسط', 'purchase_payment' => 'ثبت پرداخت خرید',
+            'cheque_create' => 'ثبت چک', 'cheque_status' => 'تغییر وضعیت چک',
+            'sale_return' => 'ثبت مرجوعی فروش', 'purchase_return' => 'ثبت مرجوعی خرید',
+            'stock_adjustment' => 'اصلاح موجودی', 'stock_count_finalize' => 'ثبت نهایی شمارش موجودی',
+            'opening_inventory_finalize' => 'ثبت نهایی موجودی اول کار', 'day_closing' => 'ثبت بستن روز',
+            'account_transfer' => 'انتقال وجه بین حساب‌ها', 'payroll_payment' => 'ثبت پرداخت حقوق',
+            'void' => 'لغو ثبت', 'login' => 'ورود به برنامه',
+            'employee_sales_policy_update' => 'تغییر تنظیمات فروش کارکنان',
+            'employee_create' => 'ایجاد کارمند', 'employee_enable' => 'فعال‌کردن کارمند',
+            'employee_disable' => 'غیرفعال‌کردن کارمند', 'employee_password_change' => 'تغییر رمز کارمند',
+            'customer_create' => 'ایجاد مشتری', 'supplier_create' => 'ایجاد تأمین‌کننده',
+            'private_upload' => 'بارگذاری فایل', 'product_create_from_purchase' => 'ایجاد کالا هنگام ورود',
+            'product_import' => 'ورود کالا از فایل', 'product_create' => 'ایجاد کالا',
+            'product_price_change' => 'تغییر قیمت فروش', 'product_update' => 'ویرایش کالا',
+            'CREATE' => 'ایجاد حساب', 'UPDATE' => 'ویرایش حساب',
+        ],
+        'financial-movement' => [
+            'SALE_PAYMENT' => 'دریافت فروش', 'PURCHASE_PAYMENT' => 'پرداخت خرید',
+            'EXPENSE' => 'پرداخت هزینه', 'INSTALLMENT_RECEIPT' => 'دریافت قسط',
+            'CHEQUE_RECEIPT' => 'وصول چک', 'REFUND' => 'بازپرداخت مرجوعی',
+            'PURCHASE_RETURN' => 'دریافت مرجوعی خرید', 'PAYROLL' => 'پرداخت حقوق',
+            'VOID_REVERSAL' => 'برگشت ثبت لغوشده', 'ACCOUNT_TRANSFER' => 'انتقال بین حساب‌ها',
+            'OPENING_BALANCE' => 'مانده اول کار', 'CAPITAL_INJECTION' => 'افزودن سرمایه',
+            'OWNER_WITHDRAWAL' => 'برداشت مالک',
+        ],
+        'stock-movement' => [
+            'SALE' => 'فروش', 'PURCHASE' => 'ورود کالا', 'ADJUSTMENT' => 'اصلاح موجودی',
+            'OPENING' => 'موجودی اول کار', 'SALE_RETURN' => 'مرجوعی فروش',
+            'PURCHASE_RETURN' => 'مرجوعی خرید', 'VOID_REVERSAL' => 'برگشت ثبت لغوشده',
+        ],
+        'reference' => [
+            'SALE' => 'فروش', 'PURCHASE' => 'خرید', 'EXPENSE' => 'هزینه',
+            'INSTALLMENT' => 'قسط', 'CHEQUE' => 'چک', 'SALE_RETURN' => 'مرجوعی فروش',
+            'PURCHASE_RETURN' => 'مرجوعی خرید', 'TRANSFER' => 'انتقال وجه',
+            'OPENING_SESSION' => 'موجودی اول کار', 'ADJUSTMENT' => 'اصلاح موجودی',
+            'STOCK_COUNT' => 'شمارش موجودی', 'PAYROLL' => 'حقوق', 'SETTING' => 'تنظیمات',
+            'USER' => 'کارمند', 'CUSTOMER' => 'مشتری', 'SUPPLIER' => 'تأمین‌کننده',
+            'PRODUCT' => 'کالا', 'PRIVATE_UPLOAD' => 'فایل', 'DAY_CLOSING' => 'بستن روز',
+            'RECEIVABLE' => 'طلب افتتاحیه', 'PAYABLE' => 'بدهی افتتاحیه',
+            'INCOMING_CHEQUE' => 'چک ورودی افتتاحیه', 'OUTGOING_CHEQUE' => 'چک خروجی افتتاحیه',
+            'CLOSING_DISCREPANCY' => 'اختلاف بستن روز', 'REFUND_METHOD_MISMATCH' => 'روش بازپرداخت متفاوت',
+            'LARGE_EXPENSE' => 'هزینه بزرگ', 'MISSING_RECEIPT' => 'هزینه بدون رسید',
+            'REPEATED_SMALL_EXPENSES' => 'هزینه‌های کوچک تکراری', 'PURCHASE_PRICE_JUMP' => 'جهش قیمت خرید',
+            'LARGE_PURCHASE' => 'خرید بزرگ', 'UNUSUAL_PURCHASE_QUANTITY' => 'تعداد خرید غیرعادی',
+            'DUPLICATE_SUPPLIER_INVOICE' => 'شماره فاکتور تأمین‌کننده تکراری', 'HIGH_DISCOUNT' => 'تخفیف بالا',
+            'SUSPICIOUS_PRICE_CHANGE' => 'تغییر قیمت غیرعادی', 'REPEATED_RETURN' => 'مرجوعی تکراری',
+            'HIGH_RETURN' => 'مرجوعی با مبلغ بالا', 'STOCK_DISCREPANCY' => 'اختلاف شمارش موجودی',
+            'DRAFT_PRODUCT' => 'کالای موقت نیازمند تکمیل', 'COUNT_OVERRIDDEN_BY_ANOTHER_EMPLOYEE' => 'تغییر شمارش کارمند دیگر',
+            'LATE_CLOSING_CORRECTION' => 'اصلاح دیرهنگام بستن روز',
+        ],
+        'file-purpose' => [
+            'PRODUCT_IMAGE' => 'تصویر کالا', 'PURCHASE_INVOICE' => 'فاکتور خرید',
+            'EXPENSE_RECEIPT' => 'رسید هزینه', 'CHEQUE_IMAGE' => 'تصویر چک',
+        ],
+    ];
+@endphp
+{{ $labels[$type][$value] ?? $value }}

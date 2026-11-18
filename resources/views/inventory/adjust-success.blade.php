@@ -1,0 +1,5 @@
+@extends('layouts.app')
+@section('title', 'موجودی اصلاح شد | پایتخت کالا')
+@section('content')
+<section class="success-receipt"><div class="success-icon">✓</div><h1>موجودی اصلاح شد</h1><div class="receipt-preview"><div><span>کالا</span><strong>{{ $record->product_name }}</strong></div><div><span>موجودی قبلی</span><strong>{{ number_format($record->stock_after - $record->quantity_delta) }}</strong></div><div><span>موجودی جدید</span><strong>{{ number_format($record->stock_after) }}</strong></div><div class="receipt-total"><span>تغییر</span><strong dir="ltr">{{ $record->quantity_delta > 0 ? '+' : '' }}{{ number_format($record->quantity_delta) }}</strong></div><div><span>ثبت‌کننده</span><strong>{{ $record->user_name }}</strong></div><div><span>زمان</span><strong>{{ \Illuminate\Support\Carbon::parse($record->created_at)->format('Y/m/d H:i') }}</strong></div></div><div class="success-actions"><a class="btn btn-primary" href="{{ route('products.show', $record->product_id) }}">تاریخچه کالا</a><a class="btn btn-quiet" href="{{ route('inventory.index') }}">بازگشت به موجودی</a></div></section>
+@endsection

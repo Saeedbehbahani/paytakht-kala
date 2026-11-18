@@ -1,0 +1,5 @@
+@extends('layouts.app')
+@section('title', 'هزینه ثبت شد | پایتخت کالا')
+@section('content')
+<section class="success-receipt"><div class="success-icon">✓</div><h1>هزینه ثبت شد</h1><p>اطلاعات زیر در سابقه فروشگاه ذخیره شد.</p><div class="receipt-preview"><div><span>مبلغ</span><strong><x-money :value="$expense->amount_toman" /></strong></div><div><span>عنوان</span><strong>{{ $category }}</strong></div>@if($expense->note)<div><span>توضیح</span><strong>{{ $expense->note }}</strong></div>@endif<div><span>زمان ثبت</span><strong>{{ ($expense->business_at ?? $expense->created_at)->format('Y/m/d H:i') }}</strong></div><div><span>ثبت‌کننده</span><strong>{{ $expense->creator?->name }}</strong></div><div><span>شناسه</span><strong dir="ltr">#{{ $expense->id }}</strong></div></div><div class="success-actions"><a class="btn btn-primary" href="{{ route('expenses.create') }}">هزینه جدید</a><a class="btn btn-quiet" href="{{ route('expenses.create', ['history' => 1]) }}">تاریخچه هزینه‌ها</a><a class="text-link" href="{{ route('dashboard') }}">بازگشت به خانه</a></div></section>
+@endsection

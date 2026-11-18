@@ -1,0 +1,3 @@
+@extends('layouts.app') @section('title','سابقه فعالیت | پایتخت کالا') @section('content')
+<div class="hero"><div><span class="eyebrow">فعالیت‌های ثبت‌شده</span><h1>سابقه فعالیت</h1></div></div><div class="list">@forelse($logs as $log)<div class="list-item"><span><strong>{{ $log->user_name??'سیستم' }} · <x-presentation-label type="audit-action" :value="$log->action"/></strong><small class="muted">{{ $log->summary }} · <x-presentation-label type="reference" :value="$log->entity_type"/> #{{ $log->entity_id }}</small></span><time class="muted">{{ $log->created_at }}</time></div>@empty<div class="empty"><strong>هنوز فعالیتی ثبت نشده.</strong><span>کارهای مهم فروشگاه پس از ثبت اینجا دیده می‌شوند.</span></div>@endforelse</div>{{ $logs->links() }}
+@endsection

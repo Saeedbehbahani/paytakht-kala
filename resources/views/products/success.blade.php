@@ -1,0 +1,5 @@
+@extends('layouts.app')
+@section('title', 'کالا ذخیره شد | پایتخت کالا')
+@section('content')
+<section class="success-receipt"><div class="success-icon">✓</div><h1>{{ $action === 'created' ? 'کالا ایجاد شد' : 'تغییرات کالا ذخیره شد' }}</h1><p>{{ $product->name }} اکنون با اطلاعات زیر در فروشگاه ثبت است.</p><div class="receipt-preview"><div><span>نام کالا</span><strong>{{ $product->name }}</strong></div>@if($product->brand)<div><span>برند</span><strong>{{ $product->brand }}</strong></div>@endif @if($product->model)<div><span>مدل</span><strong dir="ltr">{{ $product->model }}</strong></div>@endif<div class="receipt-total"><span>موجودی فعلی</span><strong>{{ number_format($product->stock_quantity) }} عدد</strong></div><div><span>ثبت‌کننده</span><strong>{{ auth()->user()->name }}</strong></div></div><div class="success-actions"><a class="btn btn-primary" href="{{ route('products.show', $product) }}">مشاهده کالا</a><a class="btn btn-quiet" href="{{ route('inventory.index') }}">بازگشت به موجودی</a></div></section>
+@endsection
