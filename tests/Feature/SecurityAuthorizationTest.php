@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Sale;
 use App\Models\User;
-use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Tests\TestCase;
@@ -47,8 +46,8 @@ class SecurityAuthorizationTest extends TestCase
         $this->actingAs($owner)
             ->get('/sales')
             ->assertOk()
-            ->assertSee('OWN-1001')
-            ->assertDontSee('OTHER-2002');
+            ->assertSee('#'.$ownedSale->id)
+            ->assertDontSee('#'.$otherSale->id);
 
         $this->actingAs($owner)->get("/sales/{$ownedSale->id}/success")->assertOk();
         $this->actingAs($owner)->get("/sales/{$otherSale->id}/success")->assertForbidden();
@@ -92,7 +91,7 @@ class SecurityAuthorizationTest extends TestCase
     {
         $employee = User::factory()->create(['role' => 'EMPLOYEE', 'active' => true]);
 
-        $this->withMiddleware(ValidateCsrfToken::class)
+        $this->withMiddleware()
             ->actingAs($employee)
             ->post('/sales', [
                 'request_uuid' => (string) Str::uuid(),

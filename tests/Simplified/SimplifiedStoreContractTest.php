@@ -80,14 +80,14 @@ class SimplifiedStoreContractTest extends TestCase
         $this->assertSame(150, $home['netToday']);
     }
 
-    public function test_every_user_sees_only_five_operational_sections_and_retired_paths_are_gone(): void
+    public function test_employee_navigation_and_managerial_boundaries_are_enforced(): void
     {
         $response = $this->actingAs($this->user)->get('/dashboard');
-        $response->assertOk()->assertSeeInOrder(['خانه', 'فروش', 'ورود', 'موجودی', 'هزینه'])->assertDontSee('پول فروشگاه')->assertDontSee('بیشتر');
+        $response->assertOk()->assertSeeInOrder(['خانه', 'فروش', 'کالاها', 'بیشتر'])->assertDontSee('پول فروشگاه');
         $this->actingAs($this->user)->get('/admin/finance')->assertNotFound();
         $this->actingAs($this->user)->get('/sales/new')->assertOk();
-        $this->actingAs($this->user)->get('/purchases/new')->assertOk();
-        $this->actingAs($this->user)->get('/inventory')->assertOk();
-        $this->actingAs($this->user)->get('/expenses/new')->assertOk();
+        $this->actingAs($this->user)->get('/purchases/new')->assertForbidden();
+        $this->actingAs($this->user)->get('/inventory')->assertForbidden();
+        $this->actingAs($this->user)->get('/expenses/new')->assertForbidden();
     }
 }
